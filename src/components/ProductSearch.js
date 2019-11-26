@@ -35,9 +35,9 @@ export default class ProductsList extends Component {
                     console.log(element)
                     return (
                         <div className="prod" key={element._id}>
-                            <h2>Nome: {element.name}</h2>
+                            <h3>Nome: {element.name}</h3>
                             <img src={element.url} alt="produto"/>
-                            <h3>Preco: {element.price}</h3>
+                            <h3>Preco: R${element.price}</h3>
                             <Link to="/buy"><button onClick={() => this.sell(element._id)}>Comprar</button></Link>
                         </div>    
                     )
