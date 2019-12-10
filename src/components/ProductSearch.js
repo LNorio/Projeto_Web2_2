@@ -16,18 +16,12 @@ export default class ProductsList extends Component {
                 crossDomain: true
             })
             .then(result => {
-                console.log(result.data)
-                console.log(this.props.name)
                 this.setState({ products: result.data });
             });
     };
 
     handleChange = event => {
         this.setState({ [event.target.name]: event.target.value });
-    }
-
-    componentDidMount() {
-        this.getProductsFromApi();
     }
 
     sell(id) {
@@ -42,8 +36,8 @@ export default class ProductsList extends Component {
                 <input name="name" placeholder="Digite seu produto" value={this.state.file} onChange={this.handleChange}></input>
                 <button onClick={() => this.getProductsFromApi()}>Procurar</button>
                 <div className="lista">
-                    {this.state.products.map(element => {
-                        console.log(element)
+                    {this.state.products.length == 0 ? "Lista vazia procure outro produto ou adicione um com o nome que procura" : 
+                    this.state.products.map(element => {
                         return (
                             <div className="prod" key={element._id}>
                                 <h3>Nome: {element.name}</h3>

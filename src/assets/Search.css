@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items : center;
+    width: 100%;
 }
 
 .search h2{
@@ -41,4 +42,5 @@
     color: white;
     background-color: teal;
     outline: none;
+    margin-bottom: 10px;
 }
