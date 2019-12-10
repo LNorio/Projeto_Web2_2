@@ -18,12 +18,17 @@ export default class ProductsList extends Component {
             });
     };
 
+    deleteProductFromApi = (id) => {
+        axios
+            .delete(`http://localhost:8080/prod/${id}`, {
+                crossDomain: true
+            })
+            .then( result => {
+            });
+    };
+
     componentDidMount() {
         this.getProductsFromApi();
-    }
-
-    sell(id){
-        console.log(id)
     }
 
     render() {
@@ -36,7 +41,7 @@ export default class ProductsList extends Component {
                             <h3>Nome: {element.name}</h3>
                             <img src={element.url} alt="produto"/>
                             <h3>Preco: R${element.price}</h3>
-                            <Link to="/buy"><button onClick={() => this.sell(element._id)}>Comprar</button></Link>
+                            <Link to="/buy"><button onClick={() => this.deleteProductFromApi(element._id)}>Comprar</button></Link>
                         </div>    
                     )
                 })}
